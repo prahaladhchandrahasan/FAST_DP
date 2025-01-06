@@ -17,7 +17,6 @@ The **FAST_DP** library by AWS Labs ([GitHub Repo](https://github.com/awslabs/fa
 | Metric                     | FAST_DP       | Opacus        |
 |----------------------------|---------------|---------------|
 | **Training Time (50 Epochs)** | ~41 minutes   | ~92 minutes   |
-| **Performance Improvement** | **2.24x faster** | -             |
 | **GPU Memory Usage**        | **0.9 GB**    | 9.2 GB        |
 
 ### Key Observations
