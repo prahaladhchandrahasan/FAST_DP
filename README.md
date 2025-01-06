@@ -35,6 +35,9 @@ While FAST_DP delivers impressive performance, there are some areas of ambiguity
 - I set a **target privacy budget** of epsilon = 4.0 for the entire training process.
 - However, the implemented accountant ([Privacy Engine Code](https://github.com/awslabs/fast-differential-privacy/blob/main/fastDP/privacy_engine.py#L401)) returned a final epsilon value of **2.2**.
 - This discrepancy requires further clarification.
+- I then set the epsilon value to 100.0 and the the final epsilon returned by the accountant is **49.26**.
+- We can observe that the final epsilon returned by the implemented privacy accountant is half the target epsilon set by the user.
+- For epsilon=100 I still got the same utility as the one with epsilon = 4.0 which is counterintiutive.
 
 ### Gradient Clipping Effect
 
@@ -43,8 +46,8 @@ While FAST_DP delivers impressive performance, there are some areas of ambiguity
 
 ### Noise Multiplier Calculation
 
-- Instead of pre-calculating the noise multiplier, I directly provided the **target epsilon** and **max_grad norm** to the `PrivacyEngine` class.
-- The final epsilon still remained **2.2**, irrespective of the provided target epsilon.
+- Instead of pre-calculating the noise multiplier, I directly provided the **target epsilon** as **4.0** and **max_grad norm** as **40** compared to **4** to the `PrivacyEngine` class.
+- The final epsilon still remained **2.2** with the same utility, which shows that there is no effect of adjusting the **max_grad norm** parameter.
 
 ---
 
