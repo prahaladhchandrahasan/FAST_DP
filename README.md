@@ -33,10 +33,10 @@ While FAST_DP delivers impressive performance, there are some areas of ambiguity
 ### Privacy Accountant Behavior
 
 - I set a **target privacy budget** of epsilon = 4.0 for the entire training process.
-- However, the implemented accountant ([Privacy Engine Code](https://github.com/awslabs/fast-differential-privacy/blob/main/fastDP/privacy_engine.py#L401)) returned a final epsilon value of **2.2**.
+- However, the implemented RDP accountant ([Privacy Engine Code](https://github.com/awslabs/fast-differential-privacy/blob/main/fastDP/privacy_engine.py#L401)) returned a final epsilon value of **2.2**.
 - This discrepancy requires further clarification.
 - I then set the epsilon value to 100.0 and the the final epsilon returned by the accountant is **49.26**.
-- We can observe that the final epsilon returned by the implemented privacy accountant is half the target epsilon set by the user.
+- We can observe that the final epsilon returned by the implemented RDP privacy accountant is half the target epsilon set by the user.
 - For epsilon=100 I still got the same utility as the one with epsilon = 4.0 which is counterintiutive.
 
 ### Gradient Clipping Effect
@@ -57,7 +57,7 @@ The **FAST_DP** library significantly reduces training time and GPU memory usage
 
 1. Documentation should clarify the behavior of the privacy accountant and how to align the target epsilon with the final privacy budget.
 2. The relationship between gradient clipping parameters and model accuracy needs further explanation.
-3. The discrepancy in noise multiplier usage and final epsilon calculation should be resolved.
+3. The relationship between target epsilon and model accuracy needs further explanation.
 
 Clarifications from AWS Labs would help improve the usability and adoption of this library.
 
